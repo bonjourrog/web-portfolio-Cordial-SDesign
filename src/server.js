@@ -2,10 +2,16 @@ const express = require('express')
 const multer = require('multer')
 const path = require('path')
 const morgan = require('morgan')
+const cookie = require('cookie-parser')
+const session = require('express-session')
+const flash = require('connect-flash')
+const MysqlStore = require('express-mysql-session')
+const passport = require('./lib/passport')
 const app = express()
 
 const router = require('./routes/userRoutes')
 const authRouter = require('./routes/authRoutes')
+const  {database} = require('./config/keys')
 
 const storage = multer.diskStorage({
     destination: path.join(__dirname, 'public/uploads'),
@@ -34,6 +40,17 @@ const upload = multer({
     }
 }).single('image')
 app.use(upload)
+
+app.use(flash())
+app.use(cookie())
+app.use(session({
+    secret:'My secret',
+    resave:false,
+    saveUninitialize:false,
+    store: new MysqlStore(database)
+}))
+app.use(passport.initialize())
+app.use(passport.session())
 app.use(morgan('dev'))
 app.use(express.urlencoded({extended:false}))
 app.use(express.static(path.join(__dirname, 'public')))

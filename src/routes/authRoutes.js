@@ -8,4 +8,8 @@ router.get('/adminpanel', controller.adminPanel)
 
 router.post('/uploadDesign', controller.uploadDesign)
 
+router.get('/register', controller.register)
+
+router.post('/register', controller.signUp)
+
 module.exports = router
