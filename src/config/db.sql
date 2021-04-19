@@ -5,7 +5,7 @@ USE cordialsdesign;
 CREATE TABLE users
 (
     id INT (11) NOT NULL,
-    username VARCHAR (20) NOT NULL,
+    userName VARCHAR (20) NOT NULL,
     password VARCHAR (100) NOT NULL
 );
 
