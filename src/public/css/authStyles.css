@@ -203,6 +203,22 @@
 /***     portfolio    ***/
 /***     portfolio    ***/
 
+.delete{
+    display: none; 
+    position: absolute; 
+    top:.4rem; left:.3rem; 
+    border-radius: .3rem; 
+    padding: .2rem .2rem; 
+    background-color: rgb(233, 62, 62); 
+    color:black; 
+    text-decoration: none;
+}
+
+.delete:hover{
+    box-shadow: 0rem 0rem 1rem rgba(0, 0, 0, 0.404);
+    background-color: rgb(212, 50, 50);
+}
+
 .portfolio_opc{
     width: 73%;
     margin: 0 auto;
@@ -213,7 +229,19 @@
     width: 100%;
     height: 16rem;
     margin-bottom: 1.2rem;
-    border:1px solid blue;
+}
+
+.showing_projects{
+    border:1px solid rgba(17, 17, 17, 0.075);
+    border-radius: .3rem;
+}
+
+.showing_projects img{
+    display:block; 
+    margin: 0 auto; 
+    width: auto; 
+    height: 100%;
+    overflow: hidden;
 }
 
 .upload-project{

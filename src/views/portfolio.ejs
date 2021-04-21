@@ -15,51 +15,16 @@
     <div class="portfolio">
         <h2>Portfolio</h2>
         <div class="projects">
-
-            <div class="project">
-                <img src="/img/tag-3425877_1920.jpg" alt="design">
-                <h3>Diseño 1</h3>
-            </div>
-
-            <div class="project">
-                <img src="/img/tag-3425877_1920.jpg" alt="design">
-                <h3>Diseño 1</h3>
-            </div>
-
-            <div class="project">
-                <img src="/img/tag-3425877_1920.jpg" alt="design">
-                <h3>Diseño 1</h3>
-            </div>
-
-            <div class="project">
-                <img src="/img/tag-3425877_1920.jpg" alt="design">
-                <h3>Diseño 1</h3>
-            </div>
-
-            <div class="project">
-                <img src="/img/tag-3425877_1920.jpg" alt="design">
-                <h3>Diseño 1</h3>
-            </div>
-
-            <div class="project">
-                <img src="/img/tag-3425877_1920.jpg" alt="design">
-                <h3>Diseño 1</h3>
-            </div>
-
-            <div class="project">
-                <img src="/img/tag-3425877_1920.jpg" alt="design">
-                <h3>Diseño 1</h3>
-            </div>
-
-            <div class="project">
-                <img src="/img/tag-3425877_1920.jpg" alt="design">
-                <h3>Diseño 1</h3>
-            </div>
-
-            <div class="project">
-                <img src="/img/tag-3425877_1920.jpg" alt="design">
-                <h3>Diseño 1</h3>
-            </div>
+            <%if(projects){%>
+                <%projects.map(i=>{%>
+                    <div class="project">
+                        <img src=<%= i.imgurl %> alt="design">
+                        <h3><%=i.description%></h3>
+                    </div>
+                <%})%>
+            <%}else{%>
+                <p style="width:100%; background-color:rgba(252, 49, 49, 0.84);">Sin projectos</p>
+            <%}%>
 
         </div>
     </div>

@@ -1,25 +1,33 @@
-<div class="portfolio_opc">
 
-    <div class="admin_projects">
+    <div class="portfolio">
+        <h2>Portfolio</h2>
+        <div class="projects">
+            <%if(projects){%>
+                <%projects.map(i=>{%>
+                    <div class="project">
+                        <a class="delete"  href="<%=`/auth/delete/${i.id}`%>">Eliminar</a>
+                        <img src=<%= i.imgurl %> alt="design">
+                        <h3><%=i.description%></h3>
+                    </div>
+                <%})%>
+            <%}else{%>
+                <p style="text-align:center; padding: 3rem 2rem; width:50%; margin: 0 auto; font-size: 3rem; background-color:rgba(252, 49, 49, 0.84);">Sin projectos</p>
+            <%}%>
 
+        </div>
     </div>
+    <script>
+        const project = document.getElementsByClassName('project')
+        const deleteProject = document.getElementsByClassName('delete')
+        for(let i = 0; i < project.length; i++){
+            project[i].addEventListener('mouseenter', function(e){
+                deleteProject[i].style.display = 'block'
+            })
 
-    <div class="upload-project">
-        <h2>Configuración de portafolio</h2>
-        <h3>Subir proyecto</h3>
-        <form class="" action="/auth/uploadDesign" method="post" enctype="multipart/form-data">
+            project[i].addEventListener('mouseleave', function(e){
+                deleteProject[i].style.display = 'none'
+            })
+        }
 
-            <div class="form-group select-file">
-                <label for="image"><img src="/icons/add.svg" alt=""></label>
-                <input id="image" type="file" name="image">
-                <button type="submit" name="button">Agregar</button>
-            </div>
 
-            <div class="form-group">
-                <label for="desc">Descripción</label>
-                <textarea id="desc" name="desc"></textarea>
-            </div>
-        </form>
-    </div>
-
-</div>
+    </script>

@@ -1,0 +1,58 @@
+<div class="portfolio_opc">
+
+    <%if(message.length > 0){%>
+        <p id="addProjectMessage" style=" display:block; position:absolute; top:.7rem; width:50%; background-color: rgba(44, 211, 108, 0.932); color:rgb(36, 35, 34); padding: 1rem 0; z-index: 9; text-align: center;"><%=message%></p>
+    <%}%>
+
+        <div class="swiper-container admin_projects">
+          <!-- Additional required wrapper -->
+            <%if(projects.length > 0){%>
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <%projects.map(p=>{%>
+                        <div class="swiper-slide showing_projects">
+                            <img src=<%=p.imgurl%> alt="">
+                        </div>
+                    <%})%>
+                    ...
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+
+                <!-- If we need scrollbar -->
+                <!--
+                <div class="swiper-scrollbar"></div>
+                -->
+            <%}else{%>
+                <div class="admin_projects">
+                    <p style="width: 100%;">No hay proyectos que mostrar</p>
+                </div>
+            <%}%>
+        </div>
+          
+    
+
+    <div class="upload-project">
+        <h2>Configuración de portafolio</h2>
+        <h3>Subir proyecto</h3>
+        <form class="" action="/auth/uploadDesign" method="post" enctype="multipart/form-data">
+
+            <div class="form-group select-file">
+                <label for="image"><img src="/icons/add.svg" alt=""></label>
+                <input id="image" type="file" name="image">
+                <button type="submit" name="button">Agregar</button>
+            </div>
+
+            <div class="form-group">
+                <label for="desc">Descripción</label>
+                <textarea id="desc" name="desc"></textarea>
+            </div>
+        </form>
+    </div>
+
+</div>
+
