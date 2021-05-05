@@ -8,9 +8,8 @@ controller.index = (req, res)=>{
 controller.portfolio = async (req, res)=>{
     try {
         const projects = await pool.query('SELECT * FROM portfolio')
-        console.log(projects);
         if(projects.length > 0){
-            res.render('portfolio', {projects})
+            res.render('user/portfolio', {projects})
         }else{
             console.log('Sin proyectos');
         }
@@ -21,11 +20,11 @@ controller.portfolio = async (req, res)=>{
 }
 
 controller.contact = (req, res)=>{
-    res.render('contact')
+    res.render('user/contact')
 }
 
 controller.about = (req, res)=>{
-    res.render('AboutUs')
+    res.render('user/aboutUs')
 }
 
 module.exports = controller

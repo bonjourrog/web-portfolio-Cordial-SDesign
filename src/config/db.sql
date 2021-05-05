@@ -6,7 +6,7 @@ CREATE TABLE users
 (
     id INT (11) NOT NULL,
     userName VARCHAR (20) NOT NULL,
-    password VARCHAR (100) NOT NULL
+    password VARCHAR (500) NOT NULL
 );
 
 ALTER TABLE users

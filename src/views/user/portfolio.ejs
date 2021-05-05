@@ -1,0 +1,22 @@
+<%-include('./partials/__header')-%>
+
+    <%-include('./partials/__navbar')-%>
+
+        <div class="portfolio">
+            <h2>Portfolio</h2>
+            <div class="projects">
+                <%if(projects){%>
+                    <%projects.map(i=>{%>
+                        <div class="project">
+                            <img src="<%=`/uploads/${i.image}`%>" alt="design">
+                            <h3><%=i.description%></h3>
+                        </div>
+                    <%})%>
+                <%}else{%>
+                    <p style="width:100%; background-color:rgba(252, 49, 49, 0.84);">Sin projectos</p>
+                <%}%>
+
+            </div>
+        </div>
+
+<%-include('./partials/__footer')-%>

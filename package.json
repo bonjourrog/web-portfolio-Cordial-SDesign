@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node src/server",
-    "test": "jest --verbose"
+    "test": "node src/server && jest --watchAll"
   },
   "author": "Equipo último",
   "license": "ISC",

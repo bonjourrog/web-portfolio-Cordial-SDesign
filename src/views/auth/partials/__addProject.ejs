@@ -1,7 +1,7 @@
 <div class="portfolio_opc">
 
     <%if(message.length > 0){%>
-        <p id="addProjectMessage" style=" display:block; position:absolute; top:.7rem; width:50%; background-color: rgba(44, 211, 108, 0.932); color:rgb(36, 35, 34); padding: 1rem 0; z-index: 9; text-align: center;"><%=message%></p>
+        <p id="addProjectMessage" style=" display:block; margin:0 auto; position:absolute; top:.7rem; width:50%; background-color: rgb(242 237 237); border-radius:.2rem; box-shadow:.5rem .5rem 1.5rem rgba(0, 0, 0, 0.55); border:.04rem solid rgba(255, 153, 0, 0.71); color:rgba(176, 132, 67, 0.71); padding: 1rem 0; z-index: 9; text-align: center; font-size:1rem;"><%=message%></p>
     <%}%>
 
         <div class="swiper-container admin_projects">
@@ -11,7 +11,7 @@
                     <!-- Slides -->
                     <%projects.map(p=>{%>
                         <div class="swiper-slide showing_projects">
-                            <img src=<%=p.imgurl%> alt="">
+                            <img src="<%=`/uploads/${p.image}`%>" alt="">
                         </div>
                     <%})%>
                     ...
@@ -33,12 +33,12 @@
                 </div>
             <%}%>
         </div>
-          
-    
+
 
     <div class="upload-project">
         <h2>Configuración de portafolio</h2>
         <h3>Subir proyecto</h3>
+        
         <form class="" action="/auth/uploadDesign" method="post" enctype="multipart/form-data">
 
             <div class="form-group select-file">
@@ -55,4 +55,3 @@
     </div>
 
 </div>
-

@@ -1,0 +1,99 @@
+<%if(projects){%>
+    <div style="display:none; position:fixed; width:100vw; height:100vh; background-color:rgba(0, 0, 0, 0.62); z-index:1;" id="popup">
+
+    </div>
+    <div class="portfolio">
+        <h2>Portfolio</h2>
+        <div class="projects">
+
+                <%projects.map(i=>{%>
+                    <div class="project">
+
+                        <a class="delete"  href="<%=`/auth/delete/${i.id}`%>">Eliminar</a>
+                        <a class="update"  href="<%=`/auth/updateDesign/${i.id}`%>">Modificar</a>
+                        <img style="margin:0  auto;" src="<%=`/uploads/${i.image}`%>" alt="design">
+                        <h3><%=i.description%></h3>
+
+                        <div class="show-image-button" style="position:absolute; width:100%; height:100%; top:0; left:0; z-index:0; background:transparent;"></div>
+                    </div>
+                <%})%>
+            <%}else{%>
+                <p style="text-align:center; padding: 3rem 2rem; width:50%; margin: 0 auto; font-size: 3rem; background-color:rgba(252, 49, 49, 0.84);">Sin projectos</p>
+            <%}%>
+
+        </div>
+    </div>
+    <script>
+        const project = document.getElementsByClassName('project')
+        const deleteProject = document.getElementsByClassName('delete')
+        const updateProject = document.getElementsByClassName('update')
+        const popup = document.getElementById('popup')
+        const show_image_button = document.getElementsByClassName('show-image-button')
+
+
+        for(let i = 0; i < project.length; i++){
+
+            // NOTE: Show buttons when mouseenter
+            project[i].addEventListener('mouseenter', function(e){
+                deleteProject[i].style.display = 'block'
+                updateProject[i].style.display = 'block'
+            })
+
+            // NOTE: Hide buttons when mouseleave
+            project[i].addEventListener('mouseleave', function(e){
+                deleteProject[i].style.display = 'none'
+                updateProject[i].style.display = 'none'
+            })
+
+
+            // project[i].addEventListener('click', function(e){
+            //     popup.style.display = 'block'
+            //     disableScroll()
+            //     const img = project[i].childNodes[5].getAttribute('src')
+            //     const desc = project[i].childNodes[7].innerHTML
+            //     popup.innerHTML = `<div style="z-index:10; overflow:hidden; vertical-align: middle; width:50%; height:100vh; margin:0 auto; box-shadow:0rem 0rem 5rem rgba(0, 0, 0, 0.76); background-color:rgba(0, 0, 0, 0.62);">
+            //         <img style="height:30rem; width:auto; display:block; margin:0 auto;" src="${img}" alt="">
+            //         <span style="display:block; width:100%; text-align:center; padding:2rem 0; color:rgb(237, 237, 237); letter-spacing:.1rem; font-size:.8rem;">${desc}</span>
+            //     </div>`
+            // })
+        }
+
+        for (let i = 0; i < show_image_button.length; i++) {
+            show_image_button[i].addEventListener('click', function(e){
+                popup.style.display = 'block'
+                disableScroll()
+                const img = project[i].childNodes[5].getAttribute('src')
+                const desc = project[i].childNodes[7].innerHTML
+                popup.innerHTML = `<div style="z-index:10; overflow:hidden; vertical-align: middle; width:50%; height:100vh; margin:0 auto; box-shadow:0rem 0rem 5rem rgba(0, 0, 0, 0.76); background-color:rgba(0, 0, 0, 0.62);">
+                    <img style="height:30rem; width:auto; display:block; margin:0 auto;" src="${img}" alt="">
+                    <span style="display:block; width:100%; text-align:center; padding:2rem 0; color:rgb(237, 237, 237); letter-spacing:.1rem; font-size:.8rem;">${desc}</span>
+                </div>`
+            })
+        }
+
+
+
+        popup.addEventListener('click', ()=>{
+            popup.style.display = 'none'
+            enableScroll()
+        })
+
+        function disableScroll() {
+            // Get the current page scroll position
+            scrollTop =
+              window.pageYOffset || document.documentElement.scrollTop;
+            scrollLeft =
+              window.pageXOffset || document.documentElement.scrollLeft,
+
+                // if any scroll is attempted,
+                // set this to the previous value
+                window.onscroll = function() {
+                    window.scrollTo(scrollLeft, scrollTop);
+                };
+        }
+
+        function enableScroll() {
+            window.onscroll = function() {};
+        }
+
+    </script>

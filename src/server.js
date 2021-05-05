@@ -32,16 +32,17 @@ const upload = multer({
     dest: path.join(__dirname, 'public/uploads'),
     limit: {fileSize: 2000000},
     fileFilter: (req, file, cb)=>{
-        const filetypes = /jpeg|jpg|png|svg|gif/
+        const filetypes = /jpeg|jpg|png|svg|gif|jfif/
         const mimetype = filetypes.test(file.mimetype)
         const extname = filetypes.test(path.extname(file.originalname))
 
         if(mimetype && extname){
             return cb(null, true)
         }
-        cb('Error: el archivo debe ser una imagen valida')
+        cb('Error')
     }
 }).single('image')
+
 app.use(upload)
 
 app.use(flash())
@@ -62,7 +63,6 @@ app.use(express.static(path.join(__dirname, 'public')))
 //Note: Local variables
 app.use((req, res, next)=>{
     res.locals.message = req.flash('message')
-    console.log(req.flash('message'));
     next()
 })
 
