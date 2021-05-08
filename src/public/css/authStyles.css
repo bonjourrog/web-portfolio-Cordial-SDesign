@@ -40,7 +40,7 @@ body{
     color:rgba(224, 149, 37, 0.8);
 }
 
-.left-bg img{
+.left-bg > img{
     position: absolute;
     width: auto;
     height: 100%;
@@ -115,6 +115,47 @@ body{
     box-shadow: 1rem 1rem 2.3rem rgba(249, 185, 20, 0.5);
 }
 
+/* Admin contac */
+/* Admin contac */
+/* Admin contac */
+/* Admin contac */
+
+.contact-content{
+    display:flex;
+    border:1px solid red;
+}
+
+.contact-form{
+    width:calc(100% - 20rem);
+    border:1px solid blue;
+}
+
+.social-networks{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    height:10rem;
+    border:.1rem solid red;
+}
+
+.social-networks > img{
+    width:7rem;
+    margin:0rem 2rem;
+    cursor:pointer;
+    border-radius:2rem;
+    box-shadow:.5rem .5rem 1.2rem rgba(0, 0, 0, 0.26);
+    transition:all .3s ease;
+}
+
+.social-networks > img:hover{
+    transform:scale(1.2);
+}
+
+.contact-content > .e{
+    background-image:url('/icons/gmail.png');
+    padding:2rem 0rem;
+}
 
 /***     Admin Panel    ***/
 /***     Admin Panel    ***/
@@ -150,7 +191,7 @@ body{
     height: 8rem;
 }
 
-.home img{
+.home > img{
     width: 2rem;
     margin-bottom: 1rem;
 }
@@ -207,7 +248,7 @@ body{
     margin-left: 1rem;
 }
 
-.settings a img{
+.settings a > img{
     display: block;
     width: 1.6rem;
 }
@@ -325,7 +366,7 @@ body{
     transition: all .3s ease;
 }
 
-.project:hover img{
+.project:hover > img{
     transform: scale(1.3);
 }
 
@@ -344,7 +385,7 @@ body{
     border-radius: .3rem;
 }
 
-.showing_projects img{
+.showing_projects > img{
     display:block;
     margin: 0 auto;
     width: auto;
@@ -410,7 +451,7 @@ body{
     transition: all .3s ease;
 }
 
-.select-file label img{
+.select-file label > img{
     width: 2rem;
 }
 
@@ -542,7 +583,7 @@ body{
         margin-bottom: 5rem;
     }
 
-    .left-bg img{
+    .left-bg > img{
         top:-2rem;
         left:0;
         width: 100%;

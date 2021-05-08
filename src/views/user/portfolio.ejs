@@ -5,7 +5,7 @@
         <div class="portfolio">
             <h2>Portfolio</h2>
             <div class="projects">
-                <%if(projects){%>
+                <%if(projects.length > 0){%>
                     <%projects.map(i=>{%>
                         <div class="project">
                             <img src="<%=`/uploads/${i.image}`%>" alt="design">
@@ -13,7 +13,7 @@
                         </div>
                     <%})%>
                 <%}else{%>
-                    <p style="width:100%; background-color:rgba(252, 49, 49, 0.84);">Sin projectos</p>
+                    <p style="width:100%; margin;0 auto; margin-bottom:5rem; padding:5rem 0rem; font-size:3.5rem; text-align:center; background-color:rgba(246, 112, 103, 0.5); box-shadow:.2rem .2rem 1rem rgba(13, 11, 12, 0.36);">No hay proyectos para mostrar</p>
                 <%}%>
 
             </div>

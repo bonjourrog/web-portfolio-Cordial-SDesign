@@ -11,7 +11,8 @@ controller.portfolio = async (req, res)=>{
         if(projects.length > 0){
             res.render('user/portfolio', {projects})
         }else{
-            console.log('Sin proyectos');
+            console.log('Sin proyectos')
+            res.render('user/portfolio', {projects:0})
         }
     } catch (e) {
         console.log(e.message);

@@ -156,7 +156,7 @@ body{
     color:rgba(246, 166, 32, 0.85);
 }
 
-.img img{
+.img > img{
     position: absolute;
     width: 100%;
     z-index: -1;
@@ -164,7 +164,7 @@ body{
 }
 
 
-.img:hover img{
+.img:hover > img{
     transform: scale(1.3);
 }
 
@@ -228,7 +228,7 @@ body{
     letter-spacing: .1rem;
 }
 
-.contact img{
+.contact > img{
     display: block;
     width: 2rem;
     height: 2rem;
@@ -240,7 +240,7 @@ body{
     transition: all .3s ease;
 }
 
-.contact img:hover{
+.contact > img:hover{
     transform: scale(1.3);
 }
 
@@ -305,7 +305,7 @@ body{
     transition: all .3s ease;
 }
 
-.project:hover img{
+.project:hover > img{
     transform: scale(1.3);
 }
 
@@ -322,6 +322,7 @@ body{
 @media only screen and (max-width:834px) {
     .navbar{
         flex-direction: column;
+        height:auto;
     }
 
     .navbar span{

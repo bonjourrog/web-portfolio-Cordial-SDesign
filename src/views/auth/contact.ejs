@@ -1,1 +1,16 @@
-<%# Aquí va las visas %>
+<%-include('./partials/__header')-%>
+    <div class="contact-content">
+        <%-include('./partials/__adminSidebar')-%>
+        <div class="contact-form">
+            <h3>Agrega tus redes sociales</h3>
+            <div class="social-networks">
+                <img src="/icons/facebook.svg" alt="facebook icon">
+                <img src="/icons/instagram.png" alt="instagram icon">
+                <img src="/icons/gmail.png" alt="instagram icon">
+            </div>
+            <form class="" action="index.html" method="post">
+                <input type="text" name="url">
+            </form>
+        </div>
+    </div>
+<%-include('./partials/__footer')-%>

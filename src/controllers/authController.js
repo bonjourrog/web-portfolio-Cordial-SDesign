@@ -137,7 +137,8 @@ controller.updateDesign = async (req, res)=>{
     }
 }
 
-controller.contactScreen = (req, res)=>{
+controller.contactScreen = async (req, res)=>{
+
     res.render('auth/contact')
 }
 

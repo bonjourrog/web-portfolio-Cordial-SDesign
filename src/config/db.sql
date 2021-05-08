@@ -33,9 +33,7 @@ DESCRIBE portfolio;
 CREATE TABLE contacts
 (
     id INT (11) NOT NULL AUTO_INCREMENT,
-    contact VARCHAR (100) NOT NULL,
     link VARCHAR (200),
-    icon VARCHAR (200) NOT NULL,
     PRIMARY KEY (id)
 );
 
