@@ -20,8 +20,8 @@ DESCRIBE users;
 CREATE TABLE portfolio
 (
     id INT (11) NOT NULL AUTO_INCREMENT,
-    imgurl VARCHAR (100) NOT NULL,
-    description VARCHAR (200),
+    image VARCHAR (100) NOT NULL,
+    description VARCHAR (500),
     PRIMARY KEY (id)
 );
 
