@@ -36,7 +36,7 @@ controller.logout = (req, res)=>{
 }
 
 controller.register = (req, res)=>{
-    res.render('register')
+    res.render('auth/register')
 }
 
 controller.signUp = async (req, res)=>{
