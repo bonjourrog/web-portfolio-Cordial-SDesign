@@ -33,3 +33,20 @@ close_open.addEventListener('click', ()=>{
     }
 
 })
+
+
+
+// NOTE: Metodo de auth/contact. mostrar link de red social
+
+const network = document.getElementsByClassName('network')
+const formLink = document.getElementById('link-form')
+const url = document.getElementById('url')
+for (let i = 0; i < network.length; i++) {
+    network[i].addEventListener('click', ()=>{
+        showLink(network[i])
+    })
+}
+const showLink = (e)=>{
+    url.placeholder = e.getAttribute('value')
+    formLink.action = `/auth/addLink/${e.getAttribute('alt')}`
+}

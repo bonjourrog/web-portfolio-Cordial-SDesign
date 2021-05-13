@@ -5,6 +5,7 @@
         <span><a href="#">Cordial_SDesign</a></span>
         <div class="nav-items">
             <ul>
+
                 <li><a href="/auth/signin">Iniciar sesión</a></li>
                 <li><a href="/AboutUs">Sobre nosotros</a></li>
                 <li><a href="/Contact">Contacto</a></li>
@@ -19,20 +20,17 @@
         </div>
 
         <div class="contacts">
-            <div class="contact">
-                <img src="/icons/gmail.png" alt="contact">
-                <h4>example@gmail.com</h4>
-            </div>
-
-            <div class="contact">
-                <img src="/icons/instagram.png" alt="contact">
-                <h4>@cordial_sdesign</h4>
-            </div>
-
-            <div class="contact">
-                <img src="/icons/whatsapp.png" alt="contact">
-                <h4>622 0000000</h4>
-            </div>
+            <%if(links.length > 0){%>
+                <%links.map(i=>{%>
+                    <%if(i.link != 'Vacio'){%>
+                    <div class="contact">
+                        <a href=<%=i.link%> target="_blank">
+                            <img src="/<%=i.icon%>" alt="Contact icon">
+                        </a>
+                    </div>
+                    <%}%>
+                <%})%>
+            <%}%>
         </div>
 
     </nav>

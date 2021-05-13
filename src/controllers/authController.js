@@ -138,8 +138,34 @@ controller.updateDesign = async (req, res)=>{
 }
 
 controller.contactScreen = async (req, res)=>{
+    try {
+        const contacts = await pool.query('SELECT * FROM contacts')
+        if(contacts.length > 0){
+            res.render('auth/contact',{contacts})
+        }else{
+            console.log('No se encontraron contactos');
+            res.render('auth/contac')
+        }
+    } catch (e) {
+        console.log('Algo salio mal al querer cargar contactos' + e.message);
+    }
+}
 
-    res.render('auth/contact')
+controller.addLink = async (req, res)=>{
+    try {
+        const {url} = req.body
+        const {name} = req.params
+        if(!url.trim() || !name.trim()){
+            req.flash('message', 'No deje el campo vacio')
+            res.redirect('/auth/contact')
+        }else{
+            await pool.query('UPDATE contacts SET link = ? Where networkName = ?', [url, name])
+            req.flash('message', 'Enlace actualizado')
+            res.redirect('/auth/contact')
+        }
+    } catch (e) {
+        console.log('Algo salio mal' + e.message);
+    }
 }
 
 module.exports = controller

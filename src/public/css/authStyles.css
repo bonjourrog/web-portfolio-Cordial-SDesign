@@ -122,12 +122,53 @@ body{
 
 .contact-content{
     display:flex;
-    border:1px solid red;
 }
 
 .contact-form{
+    position: relative;
     width:calc(100% - 20rem);
-    border:1px solid blue;
+}
+
+.contact-form  > h3{
+    margin:3rem 0rem;
+}
+
+.contact-form > form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin:0 auto;
+    width: 30rem;
+    height: 10rem;
+}
+
+.contact-form > form > button{
+    padding: .3rem 1rem;
+    background: transparent;
+    border:.1rem solid rgba(250, 203, 64, 0.88);
+    color: rgba(250, 203, 64, 0.88);
+    cursor: pointer;
+    outline: none;
+    box-shadow: .3rem .3rem .5rem rgba(17, 16, 16, 0.22);
+    transition: all .3s ease;
+}
+
+.contact-form > form > button:hover{
+    background-color: rgba(250, 203, 64, 0.88);
+    color: rgb(51, 51, 51);
+    box-shadow: .3rem .3rem .5rem rgba(17, 16, 16, 0.14);
+}
+
+.contact-form > form > input{
+    padding: .5rem .7rem;
+    margin-bottom: 1rem;
+    outline: none;
+    border:.1rem solid rgba(6, 6, 6, 0.23);
+}
+
+.contact-form > form > input:focus{
+    box-shadow: .3rem .3rem .7rem rgba(8, 8, 7, 0.19);
 }
 
 .social-networks{
@@ -136,7 +177,6 @@ body{
     align-items:center;
     width:100%;
     height:10rem;
-    border:.1rem solid red;
 }
 
 .social-networks > img{
@@ -148,13 +188,8 @@ body{
     transition:all .3s ease;
 }
 
-.social-networks > img:hover{
+.social-networks > img:active{
     transform:scale(1.2);
-}
-
-.contact-content > .e{
-    background-image:url('/icons/gmail.png');
-    padding:2rem 0rem;
 }
 
 /***     Admin Panel    ***/

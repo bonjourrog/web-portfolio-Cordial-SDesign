@@ -20,8 +20,18 @@ controller.portfolio = async (req, res)=>{
 
 }
 
-controller.contact = (req, res)=>{
-    res.render('user/contact')
+controller.contact = async (req, res)=>{
+    try {
+        links = await pool.query('SELECT * from contacts')
+        if(links.length > 0){
+            res.render('user/contact',{links})
+        }else{
+            req.flash('No se encontraron enlaces')
+            res.redirect('/contact')
+        }
+    } catch (e) {
+            console.log('Algo salio mal '+ e.message);
+    }
 }
 
 controller.about = (req, res)=>{

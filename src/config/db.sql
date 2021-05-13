@@ -33,7 +33,9 @@ DESCRIBE portfolio;
 CREATE TABLE contacts
 (
     id INT (11) NOT NULL AUTO_INCREMENT,
-    link VARCHAR (200),
+    networkName VARCHAR (20),
+    icon VARCHAR (100) NOT NULL,
+    link VARCHAR (200) DEFAULT 'Vacio',
     PRIMARY KEY (id)
 );
 

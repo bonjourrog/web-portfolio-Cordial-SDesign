@@ -2,14 +2,20 @@
     <div class="contact-content">
         <%-include('./partials/__adminSidebar')-%>
         <div class="contact-form">
+            <%if(message.length > 0){%>
+                <h3 style="position:absolute; text-align:center; padding:.5rem 1.3rem; background-color:rgba(36, 167, 48, 0.87); width:100%; top:0rem;;"><%=message%></h3>
+            <%}else{}%>
             <h3>Agrega tus redes sociales</h3>
             <div class="social-networks">
-                <img src="/icons/facebook.svg" alt="facebook icon">
-                <img src="/icons/instagram.png" alt="instagram icon">
-                <img src="/icons/gmail.png" alt="instagram icon">
+                <%if(contacts.length > 0){%>
+                    <%contacts.map(i=>{%>
+                        <img class="network" src="/<%=i.icon%>" alt=<%=i.networkName%> value=<%=i.link%> >
+                    <%})%>
+                <%}%>
             </div>
-            <form class="" action="index.html" method="post">
-                <input type="text" name="url">
+            <form id="link-form" action="/auth/addLink/''" method="post">
+                <input autocomplete="off" id="url" type="text" name="url" placeholder="Enlace">
+                <button>Actualizar</button>
             </form>
         </div>
     </div>

@@ -218,7 +218,7 @@ body{
     width: 15rem;
 }
 
-.contact h4{
+/* .contact h4{
     width: 100%;
     text-align: center;
     margin-top: 1rem;
@@ -226,12 +226,12 @@ body{
     font-weight: normal;
     color:rgba(235, 175, 87, 0.84);
     letter-spacing: .1rem;
-}
+} */
 
-.contact > img{
+.contact > a{
     display: block;
-    width: 2rem;
-    height: 2rem;
+    width: 3rem;
+    height: 3rem;
     z-index: 1;
     margin: 0 auto;
     top:0;
@@ -240,7 +240,11 @@ body{
     transition: all .3s ease;
 }
 
-.contact > img:hover{
+.contact > a > img{
+    width: 100%;
+}
+
+.contact > a:hover{
     transform: scale(1.3);
 }
 

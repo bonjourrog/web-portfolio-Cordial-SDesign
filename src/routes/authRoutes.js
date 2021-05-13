@@ -14,7 +14,9 @@ router.post('/uploadDesign', controller.userAuthenticated, controller.uploadDesi
 router.get('/delete/:id', controller.userAuthenticated, controller.delete)
 router.get('/updateDesign/:id', controller.updateScreen)
 router.post('/updateDesign/:id', controller.updateDesign)
+
 router.get('/contact', controller.contactScreen)
+router.post('/addLink/:name', controller.addLink)
 
 
 module.exports = router
